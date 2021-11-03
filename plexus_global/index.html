@@ -22,7 +22,7 @@
             <a href="">Services</a>
         </div>
         <div class="navitem">
-            <a href="">About us</a>
+            <a href="#ourbrand">About us</a>
         </div>
         <div class="navitem">
             <a href="">Home</a>
@@ -51,23 +51,23 @@
 
     </main>
    
-    <div class="section-1">
+    <div class="main" id="ourbrand"class="section-1">
         <div class="title-container">Our brand</div>
 
         <div class="row">
-            <div class="column left">
+            <div id="left" onclick="displayDate()" class="column left">
                 <div class="column-content">
                     <img src="./health-care-simplified.svg">
                 </div>
             </div>
-            <div class="column right">
+            <div id="right" onclick="displayDate2()" class="column right">
                 <div class="column-content">
                     <img src="./health-ledger.svg">
                 </div>
             </div>
         </div>
 
-        <div class="container-1">
+        <div id="container-1" class="container-1">
             <div class="heading">
                 <span class="section-title">Marketplace for <span class="highlight-blue"> Allied Services</span></span>
             </div>
@@ -84,7 +84,6 @@
 
                     <div class="card-body">
                         <img src="./corporates.svg">
-
                         <p>Corporates</p>
                     </div>
 
@@ -111,7 +110,7 @@
             </div>
         </div>
 
-        <div class="container-2">
+        <div id="container-2" class="container-2">
             <div class="heading">
                 <span class="section-title">Standardisation in <span class="highlight-blue">Diagnostic
                         Centers</span></span>
@@ -154,6 +153,8 @@
 
             </div>
 
+        </div>
+
     </div>
 
     <!-- <div class="section-4">
@@ -184,7 +185,7 @@
         <div class='containerTop'>
             <div class='left'>
                 <div id="top">
-                    <h3>Our Services</h3>
+                    <h3 style="font-weight: 500;">Our Services</h3>
                     <h1>Why compete when we can be friends?</h1>
                 </div>
                 <img src='./groupImg.png'>
@@ -305,7 +306,7 @@
             <div class='right'>
                 
                 <div id="top">
-                    <h3>Our Services</h3>
+                    <h3 style="font-weight: 500;" >Our Services</h3>
                     <h1>What we do?</h1>
                 </div>
               
@@ -320,7 +321,23 @@
         <div class="card-container">
 
         </div>
-
+        <div class="sec3">
+            <div class="sec3-top">
+                <div class="sec3-top-left">
+                    <span class="highlight-blue line">Our capabilties</span>
+                    <span style="font-size: 48px; font-weight: 700; ">Our centers are growing with Time</span>
+                    <span class="highlight-grey" style="font-size: 16px; font-weight: 500; margin-top: 32px;">               
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                        Nullam interdum tempor ullamcorper. Etiam rhoncus aliquet nisl eget lacinia. Nunc quis commodo sapien, 
+                        ac elementum nunc. Morbi sollicitudin placerat arcu, vitae rhoncus quam commodo ac. Vestibulum tempus auctor metus, 
+                        nec scelerisque justo dignissim ac. In vitae feugiat dui. Curabitur euismod lorem et ex consequat vulputate. Duis arcu libero, 
+                        porta eget lacus at, molestie vehicula nibh.
+                    </span>
+                </div>
+                <img src="hospital-ourcapabilties.png" class="sec3-top-right" />
+            </div>
+            
+        </div>
         <div id="ribbon">
             <div class="ribCards">
                 <div id="top"></div>
@@ -345,6 +362,7 @@
                     <p>Centres to be added</p>
                 </div>
             </div>
+            
             <div class="ribCards">
                 <div class="img">
                     <img src="./man.svg" alt="">
@@ -362,6 +380,8 @@
            
         </div>
     </div>
+   
+
 
     <!-- below OUR BUSSINESS PLAN -->
     <div class="section-4">
@@ -375,5 +395,44 @@
 
     </div>
 </body>
+<script>
+    function displayDate2() {
+  document.getElementById("container-1").style.display = "none";
+  document.getElementById("container-2").style.display = "block";
+  document.getElementById("right").classList.add("selected");
+  document.getElementById("left").classList.remove("selected");
 
+}
+function displayDate() {
+  document.getElementById("container-1").style.display = "block";
+  document.getElementById("container-2").style.display = "none";
+  document.getElementById("left").classList.add("selected");
+  document.getElementById("right").classList.remove("selected");
+}
+
+$(document).ready(function(){
+  // Add smooth scrolling to all links
+  $("a").on('click', function(event) {
+
+    // Make sure this.hash has a value before overriding default behavior
+    if (this.hash !== "") {
+      // Prevent default anchor click behavior
+      event.preventDefault();
+
+      // Store hash
+      var hash = this.hash;
+
+      // Using jQuery's animate() method to add smooth page scroll
+      // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+      $('html, body').animate({
+        scrollTop: $(hash).offset().top
+      }, 800, function(){
+   
+        // Add hash (#) to URL when done scrolling (default click behavior)
+        window.location.hash = hash;
+      });
+    } // End if
+  });
+});
+</script>
 </html>
