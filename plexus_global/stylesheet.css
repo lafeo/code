@@ -74,6 +74,14 @@ main{
 .highlight-grey{
     color: #7B7B7B;
 }
+.exline::before{
+    display: inline-block;
+    content: "";
+    border-top: 2px solid #4195C0;
+    width: 3rem;
+    margin: 0 1rem;
+    transform: translateY(-5px);
+}
 .line::after{
       display: inline-block;
       content: "";
@@ -168,6 +176,10 @@ main p{
     padding: 48px 0;
 }
 
+.brandsTxt{
+    font-weight: 300;
+    font-size: 1em;
+}
 .container-1{
     padding: 48px 10%;
     /* display: none; */
@@ -269,6 +281,7 @@ main p{
     flex-direction: column;
     height: auto;
     justify-content: space-between;
+
     
 }
 
@@ -306,8 +319,8 @@ main p{
 }
 .section-2 .containerTop .right .servCard {
     width: 50%;
-    padding: 3em;
-    transition: all 200ms ease-out;
+    padding: 1.5em 3em;
+    cursor: pointer;    
 }
 .section-2 .containerTop .right .servCard .icon{
     display: flex;
@@ -385,7 +398,8 @@ main p{
 
 .containerBottom .right #top h1{
     padding: 1.4em;
-    font-size: 2em;
+    font-size: 2.6em;
+    white-space: nowrap;
 }
 
 .containerBottom .right img{
@@ -478,7 +492,10 @@ main p{
     font-size: 2em;
     font-weight: 600;
 }
-
+#ribbon .title span{
+    font-size: 0.6em;
+    font-weight: 100;
+}
 #ribbon .txt{
     font-size: 1em;
 }
@@ -487,6 +504,18 @@ main p{
     display: flex;
     justify-content: center;
     margin-bottom: 1.2em;
+
+}
+
+#ribbon .ribCards .img img{
+    height: 50px;
+}
+
+.hrLine{
+    height: 100%;
+    width: 10px;
+    opacity: 0.23;
+    background-color: white;
 }
 
 

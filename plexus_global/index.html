@@ -52,7 +52,7 @@
     </main>
    
     <div class="main" id="ourbrand"class="section-1">
-        <div class="title-container">Our brand</div>
+        <div class="title-container "> <h2 class="brandsTxt line exline">Our Brands</h2></div>
 
         <div class="row">
             <div id="left" onclick="displayDate()" class="column left">
@@ -185,13 +185,13 @@
         <div class='containerTop'>
             <div class='left'>
                 <div id="top">
-                    <h3 style="font-weight: 500;">Our Services</h3>
+                    <h3 style="font-weight: 500;" class="line exline">Our Services</h3>
                     <h1>Why compete when we can be friends?</h1>
                 </div>
-                <img src='./groupImg.png'>
+                <img id="groupImg" src='./groupImg.png'>
             </div>
             <div class='right'>
-                <div class="servCard">
+                <div class="servCard" onclick="switchImg(this.id)" id="referral">
                         
                     <div class="icon">  
                         <img src="./doctor_referrals.svg">
@@ -200,14 +200,14 @@
                     <div class="subHead">Doctors On Board</div>
                     <div class="desc">Emergency Services, Range of tests at Universal pricing, Exposure to corporate clients</div>
                 </div>
-                <div class="servCard">
+                <div class="servCard" onclick="switchImg(this.id)" id="corporate">
                         
                     <div class="icon"> <img src="./corporates.svg"></div>
                     <div class="head">Corporates</div>
                     <div class="subHead">Mahindra, Armacell.......</div>
                     <div class="desc">Pharmacy, Data, Human Resource, Data Driven Analytics, Telemedicine, Health-talks, Discounted Pharmacy...</div>
                 </div>
-                <div class="servCard">
+                <div class="servCard" onclick="switchImg(this.id)" id="aggregator">
                         
                     <div class="icon"><img src='./aggregator.svg'></div>
                     <div class="head">Aggregator</div>
@@ -215,21 +215,21 @@
                     <div class="desc">Medical Room Management, 
                         Digital Product Service....</div>
                 </div>
-                <div class="servCard">
+                <div class="servCard" onclick="switchImg(this.id)" id="health">
                         
                     <div class="icon"><img src="./health_insurance.svg"></div>
                     <div class="head">Health Insurance</div>
                     <div class="subHead">HDFC, Care.......</div>
                     <div class="desc">Data Analytics, Single Point of Contact, Standardised Diagnostics & Reports, Less Overheads, other allied services...</div>
                 </div>
-                <div class="servCard">
+                <div class="servCard" onclick="switchImg(this.id)" id="retail">
                         
                     <div class="icon"><img src="./retail.svg"></div>
                     <div class="head">Retail</div>
                     <div class="subHead">Walk-In Customer</div>
                     <div class="desc">Hospital Referrals, Emergency Medical Assistance, Healthcare Funding.</div>
                 </div>
-                <div class="servCard">
+                <div class="servCard" onclick="switchImg(this.id)" id="tpa">
                         
                     <div class="icon"><img src="./tpa.svg"></div>
                     <div class="head">TPA</div>
@@ -251,7 +251,7 @@
                   
                 </div>
                 
-                <div class="servCard whitebg">
+                <div class="servCard whitebg" >
                         
                     <div class="icon"> <img src="./stab.svg"></div>
                     <div class="head">Scalibility &
@@ -306,8 +306,8 @@
             <div class='right'>
                 
                 <div id="top">
-                    <h3 style="font-weight: 500;" >Our Services</h3>
-                    <h1>What we do?</h1>
+                    <h3 style="font-weight: 500;" class="line exline" >Our Services</h3>
+                    <h1>What We Do</h1>
                 </div>
               
             </div>
@@ -353,6 +353,7 @@
                     <p>Centres to be added</p>
                 </div>
             </div>
+            <hr class="hrLine">
             <div class="ribCards">
                 <div class="img">
                     <img src="./target.svg" alt="">
@@ -362,14 +363,17 @@
                     <p>Centres to be added</p>
                 </div>
             </div>
+            <hr class="hrLine">
             
             <div class="ribCards">
                 <div class="img">
                     <img src="./man.svg" alt="">
                 </div>
-                <div class="title">15mn</div>
+                <div class="title">15<span> mn</span></div>
                 <div class="txt">Lives to be touched</div>
             </div>
+            <hr class="hrLine">
+
             <div class="ribCards">
                 <div class="img">
                     <img src="./building.svg" alt="">
@@ -396,7 +400,7 @@
     </div>
 </body>
 <script>
-    function displayDate2() {
+function displayDate2() {
   document.getElementById("container-1").style.display = "none";
   document.getElementById("container-2").style.display = "block";
   document.getElementById("right").classList.add("selected");
@@ -409,6 +413,51 @@ function displayDate() {
   document.getElementById("left").classList.add("selected");
   document.getElementById("right").classList.remove("selected");
 }
+
+
+function switchImg(e) {
+
+    
+    corp = document.getElementById('corporate');
+    tpa = document.getElementById('tpa');
+    ret = document.getElementById('retail');
+    heal = document.getElementById('health');
+    gator = document.getElementById('aggregator');
+    ref = document.getElementById('referral');
+
+
+    if(e === ref.id){
+        image = document.getElementById('groupImg').src = './referralImg.png';
+        
+    }
+    else if(e === corp.id){
+        image = document.getElementById('groupImg').src = './groupImg.png';
+    }
+    else if(e == tpa.id){
+        image = document.getElementById('groupImg').src = './tpaImg.png';
+
+    }
+    else if(e == ret.id){
+        image = document.getElementById('groupImg').src = './retImg.png';
+
+    }
+    else if(e == heal.id){
+        image = document.getElementById('groupImg').src = './healImg.png';
+
+    }
+    else if(e == gator.id){
+        image = document.getElementById('groupImg').src = './gatorImg.png';
+
+    }
+    else{
+        image = document.getElementById('groupImg').src = './groupImg.png';
+
+    }
+
+   
+
+}
+
 
 $(document).ready(function(){
   // Add smooth scrolling to all links
@@ -434,5 +483,6 @@ $(document).ready(function(){
     } // End if
   });
 });
+
 </script>
 </html>
