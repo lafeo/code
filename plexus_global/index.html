@@ -24,14 +24,23 @@
         </div>
 
         <div class="navitem">
-            <a href="">Services</a>
+            <a href="#services">Services</a>
         </div>
 
         <div class="navitem">
             <a href="./ContactUs.html">Contact us</a>
         </div>
+        <div class="mnavbtn" onclick="toggleNav()">
+            <img src="./menu.png" />
+        </div>
     </header>
-
+    <div id="mnav" class="mnav">
+        <img class="logo" alt="logo" src="./plexus_global2.svg">
+        <a class="mnavitem" href="./index.html">Home</a>
+        <a class="mnavitem" href="#ourbrand">About Us</a>
+        <a class="mnavitem" href="#services">Services</a>
+        <a class="mnavitem" href="./ContactUs.html">Contact Us</a>
+    </div>
 
     <main>
         <div class="content-left">
@@ -184,7 +193,7 @@
         
       </div> -->
     <!-- below is for WHY COMPETE WHEN WE CAN BE FRIENDS -->
-    <div class="section-2">
+    <div class="section-2" id="services">
         <div class='containerTop'>
             <div class='left'>
                 <div id="top">
@@ -471,62 +480,6 @@
         <h3 style="font-weight: 500; color: rgba(65, 149, 192, 1)" class="line exline">Our Team</h3>
         <h1 style="margin-top: 16px; font-size: 36px; font-weight: 600;">Who are we</h1>
         <div class="team-holder" id="team-holder" onclick="loadTeam(true)">
-            <div class="team-item">
-                <img src="./ashutosh.png" />
-                <span class="team-name">Ashutosh N. Mishra</span>
-                <span class="team-position">Head of Digital Transformation</span>
-                <span class="team-spacer"></span>
-                <span class="team-position">Founder</span>
-                <span class="team-info">Desmantel Studio</span>
-                <span class="team-spacer"></span>
-                <span class="team-position">Founder</span>
-                <span class="team-info">The Bodhi Project</span>
-                <span class="team-spacer"></span>
-                <span class="team-position">Ex Design teams</span>
-                <span class="team-info">
-                    Philips(Italia),<br>
-                    Rancilio(Italia), Studio 34, Huawei<br>
-                    Tech....
-                </span>
-            </div>
-
-            <div class="team-item" style="background: rgba(232, 244, 248, 1); z-index: 1;">
-                <img src="./ashutosh.png" />
-                <span class="team-name">Ashutosh N. Mishra</span>
-                <span class="team-position">Head of Digital Transformation</span>
-                <span class="team-spacer"></span>
-                <span class="team-position">Founder</span>
-                <span class="team-info">Desmantel Studio</span>
-                <span class="team-spacer"></span>
-                <span class="team-position">Founder</span>
-                <span class="team-info">The Bodhi Project</span>
-                <span class="team-spacer"></span>
-                <span class="team-position">Ex Design teams</span>
-                <span class="team-info">
-                    Philips(Italia),<br>
-                    Rancilio(Italia), Studio 34, Huawei<br>
-                    Tech....
-                </span>
-            </div>
-
-            <div class="team-item">
-                <img src="./ashutosh.png" />
-                <span class="team-name">Ashutosh N. Mishra</span>
-                <span class="team-position">Head of Digital Transformation</span>
-                <span class="team-spacer"></span>
-                <span class="team-position">Founder</span>
-                <span class="team-info">Desmantel Studio</span>
-                <span class="team-spacer"></span>
-                <span class="team-position">Founder</span>
-                <span class="team-info">The Bodhi Project</span>
-                <span class="team-spacer"></span>
-                <span class="team-position">Ex Design teams</span>
-                <span class="team-info">
-                    Philips(Italia),<br>
-                    Rancilio(Italia), Studio 34, Huawei<br>
-                    Tech....
-                </span>
-            </div>
         </div>
         
     </div>
@@ -780,11 +733,17 @@ function loadTestimonial(ct){
     document.getElementById('test-select').innerHTML = selectors;
 }
 
+function getMembersPerPage(){
+    if(window.innerWidth>1000) return 3
+    if(window.innerWidth>700) return 1
+    return 1
+}
+
 function loadTeam(cp){
-    if(cp==true) currentTeamPage = (currentTeamPage+1)%2; 
+    if(cp==true) currentTeamPage = (currentTeamPage+1)%(teamData.length/getMembersPerPage()); 
     let out = "";
-    for(var i=0;i<3;i++){
-        let member = teamData[currentTeamPage*3+i]
+    for(var i=0;i<getMembersPerPage();i++){
+        let member = teamData[currentTeamPage*getMembersPerPage()+i]
         let sections = "";
         for(var j=0;j<member.sections.length;j++){
             let temp = `<span class="team-position">${member.sections[j].title}</span>
@@ -842,12 +801,21 @@ function switchImg(e) {
 
     }
 
-   
+}
+var mnavOpen = false;
 
+function toggleNav(){
+    mnavOpen = !mnavOpen;
+    document.body.style.overflow = mnavOpen ? 'hidden' : 'auto';
+    document.getElementById('mnav').classList.toggle('mnav-active');
 }
 
 document.addEventListener('DOMContentLoaded',_=>{
     loadTestimonial();
+    loadTeam();
+})
+
+window.addEventListener('resize',_=>{
     loadTeam();
 })
 
