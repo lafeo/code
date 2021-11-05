@@ -81,13 +81,19 @@ main{
 .highlight-grey{
     color: #7B7B7B;
 }
+
+.exline{
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
 .exline::before{
     display: inline-block;
     content: "";
     border-top: 2px solid #4195C0;
     width: 3rem;
     margin: 0 1rem;
-    transform: translateY(-5px);
 }
 .line::after{
       display: inline-block;
@@ -95,7 +101,6 @@ main{
       border-top: 2px solid #4195C0;
       width: 3rem;
       margin: 0 1rem;
-      transform: translateY(-5px);
 }
 .highlight-blue{
     color: #4195C0;
@@ -569,6 +574,23 @@ main p{
     font-size: 18px;
 }
 
+.brand-row{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+    height: 480px;
+}
+
+.brand-row div{
+    width: 100%;
+}
+
+.brand-row img{
+    width: 100%;
+    padding: 10%;
+}
+
 .section-5{
     background: rgba(232, 244, 248, 1);
     padding: 96px 64px;
@@ -684,6 +706,7 @@ main p{
     color: rgba(123, 123, 123, 1);
     box-shadow: rgba(0, 0, 0, 0.15) 1px 2px 8px;
     font-size: 16px;
+    animation: fadein 0.5s;
 }
 
 .team-item img{
@@ -881,6 +904,10 @@ main p{
     color: rgba(123, 123, 123, 1);
 }
 
+.sec5-logos img{
+    max-width: 100%;
+}
+
 @keyframes fadein {
     from { 
         opacity: 0; 
@@ -997,6 +1024,12 @@ main p{
     .section-4{
         grid-template-columns: auto auto;
     }
+
+    .brand-row{
+        height: 256px;
+    }
+
+    
 }
 
 @media screen and (max-width: 720px) {
@@ -1025,7 +1058,18 @@ main p{
     .section-4{
         grid-template-columns: auto;
     }
+
+    .brand-row{
+        height: 128px;
+    }
     
+    .test-holder{
+        padding: 32px;
+    }
+
+    .sec4-item{
+        padding: 8px;
+    }
 }
 
 @media screen and (max-width: 540px) {

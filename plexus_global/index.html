@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="./stylesheet.css">
-    <title></title>
+    <title>Plexus Global</title>
 
 </head>
 
@@ -16,7 +16,7 @@
     <header>
         <img class="logo" alt="logo" src="./plexus_gobal.svg">
         <div class="navitem">
-            <a href="">Home</a>
+            <a href="./index.html">Home</a>
         </div>
 
         <div class="navitem">
@@ -57,13 +57,13 @@
     <div class="main" id="ourbrand"class="section-1">
         <div class="title-container "> <h2 class="brandsTxt line exline">Our Brands</h2></div>
 
-        <div class="row">
-            <div id="left" onclick="displayDate()" class="column left">
+        <div class="brand-row">
+            <div id="left" onclick="displayDate()">
                 <div class="column-content">
                     <img src="./health-care-simplified.svg">
                 </div>
             </div>
-            <div id="right" onclick="displayDate2()" class="column right">
+            <div id="right" onclick="displayDate2()">
                 <div class="column-content">
                     <img src="./health-ledger.svg">
                 </div>
@@ -402,7 +402,7 @@
         </div>
         <div class="sec4-item">
             <h3 style="font-weight: 500; color: rgba(65, 149, 192, 1)" class="line exline">Our Bussiness Plan</h3>
-            <h1 style="margin-top: 24px; font-size: 42px;">A Solution for Bharat</h1>
+            <h1 style="margin-top: 24px;">A Solution for Bharat</h1>
         </div>
         <div class="sec4-item sec4-blue">
             <img src="./preferred-partner.svg"/>
@@ -470,7 +470,7 @@
     <div class="section-6">
         <h3 style="font-weight: 500; color: rgba(65, 149, 192, 1)" class="line exline">Our Team</h3>
         <h1 style="margin-top: 16px; font-size: 36px; font-weight: 600;">Who are we</h1>
-        <div class="team-holder">
+        <div class="team-holder" id="team-holder" onclick="loadTeam(true)">
             <div class="team-item">
                 <img src="./ashutosh.png" />
                 <span class="team-name">Ashutosh N. Mishra</span>
@@ -601,7 +601,134 @@ var testimonials = [
         stars: 4,
         content: "This medical and health care facility distinguishes itself from the competition by providing technologically advanced medical and health care. A mobile app and a website are available via which you can easily schedule appointments, get online "
     },
+];
+
+var teamData = [
+    {
+        "image": "./sambit.png",
+        "name": "Sambit Ghosh",
+        "position": "Founder",
+        "sections": [
+            {
+                "title": "Description",
+                "text": "A decade plus of experience in franchise developpment for some leading brands in the country along with multiple domain expertise. Masters in International Business."
+            },
+            {
+                "title": "Past Experiences",
+                "text": "Head of new market developments and franchise expansion for express clinics, Maanyavar, Firstcry. Pivotal in setting up 20 centers in new locations for Express Clinics"
+            },
+            {
+                "title": "Core Strengths",
+                "text": "Deep understanding of Brand equity and placement. SOP management and standardisation"
+            }
+        ]
+    },
+    {
+        "image": "./roopali.png",
+        "name": "Roopali Mantri",
+        "position": "Co-founder",
+        "sections": [
+            {
+                "title": "Description",
+                "text": "BCS Computer Science, PGDM in HR & Operations from MIT. Experience in running multiple operational roles accross healthcare"
+            },
+            {
+                "title": "Past Experiences",
+                "text": "Operations Director with a transporation Company. Spearheaded the entire SOP for setting up HealthLedger Diagnostics"
+            },
+            {
+                "title": "Core Strengths",
+                "text": "Diagnostic Operations. Day to day management. Human resource and training."
+            }
+        ]
+    },
+    {
+        "image": "./darshan.png",
+        "name": "Dr. Darshan Chandak",
+        "position": "Co-founder",
+        "sections": [
+            {
+                "title": "Description",
+                "text": "MD Medicine, general physician, Internal Medicine Specialist, with 8 years of overall experience in setting up multiple diagnostic centers, hospitals. A keen eye on quality management and medico legal prospectives."
+            },
+            {
+                "title": "Past Experiences",
+                "text": "Consultant Physician, DY Patil Medical College. Apollo Hospitals, MGM Hospitals."
+            },
+            {
+                "title": "Core Strengths",
+                "text": "Corporate Wellness, Quality assurance, lab audits and certifications. Medico legal."
+            }
+        ]
+    },
+    {
+        "image": "./paraag.png",
+        "name": "Paraag Dave",
+        "position": "CEO",
+        "sections": [
+            {
+                "title": "Vice President",
+                "text": "E Medlife Insurance"
+            },
+            {
+                "title": "National Business Head",
+                "text": "Express Clinics"
+            },
+            {
+                "title": "Vice President",
+                "text": "Aspire Insurance"
+            },
+            {
+                "title": "AGM, Business Development",
+                "text": "MD India"
+            }
+        ]
+    },
+    {
+        "image": "./siddartha.png",
+        "name": "Siddhartha S. Kaushik",
+        "position": "Head of Operations",
+        "sections": [
+            {
+                "title": "Associate Vice President",
+                "text": "Ayukt Healthcare"
+            },
+            {
+                "title": "Senior Manager Operations",
+                "text": "MD India Healthcare Networks"
+            },
+            {
+                "title": "Reigonal Operations Manager",
+                "text": "Medi Assist, Health India TPA"
+            }
+        ]
+    },
+    {
+        "image": "./sagar.png",
+        "name": "Sagar Gilda",
+        "position": "Head of Finance",
+        "sections": [
+            {
+                "title": "Chattered Accountant",
+                "text": "7+ years of experience in Health care Finance"
+            },
+            {
+                "title": "Head of Finance",
+                "text": "Express Clinics"
+            },
+            {
+                "title": "Finance Manager",
+                "text": "Sahyadri Hospital"
+            },
+            {
+                "title": "Finance Head",
+                "text": "Start Group Hospitals"
+            }
+        ]
+    }
 ]
+
+var currentTeamPage = 0;
 
 var currentTestimonial = 0;
 
@@ -653,6 +780,29 @@ function loadTestimonial(ct){
     document.getElementById('test-select').innerHTML = selectors;
 }
 
+function loadTeam(cp){
+    if(cp==true) currentTeamPage = (currentTeamPage+1)%2; 
+    let out = "";
+    for(var i=0;i<3;i++){
+        let member = teamData[currentTeamPage*3+i]
+        let sections = "";
+        for(var j=0;j<member.sections.length;j++){
+            let temp = `<span class="team-position">${member.sections[j].title}</span>
+                        <span class="team-info">${member.sections[j].text}</span>`;
+            sections+=temp;
+        }
+        let item = `<div class="team-item">
+                        <img src="${member.image}" />
+                        <span class="team-name">${member.name}</span>
+                        <span class="team-position">${member.position}</span>
+                        <span class="team-spacer"></span>
+                        ${sections}
+                    </div>`
+        out+=item;
+    }
+    document.getElementById('team-holder').innerHTML = out;
+}
+
 function switchImg(e) {
 
     
@@ -697,7 +847,8 @@ function switchImg(e) {
 }
 
 document.addEventListener('DOMContentLoaded',_=>{
-    loadTestimonial()
+    loadTestimonial();
+    loadTeam();
 })
 
 /*$(document).ready(function(){
