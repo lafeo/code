@@ -530,8 +530,8 @@ main p{
 }
 
 .section-4{
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: auto auto auto;
     width: 100%;
 }
 
@@ -727,6 +727,10 @@ main p{
     padding: 64px;
 }
 
+.footer h1{
+    color: rgba(55, 55, 55, 0.8);
+}
+
 .footer-bottom{
     background: #4195C0;
     color: #FFF;
@@ -800,6 +804,81 @@ main p{
     width: 100%;
     display: grid;
     grid-template-columns: auto auto auto auto;
+}
+
+.contact-content{
+    display: flex;
+    flex-direction: column;
+    padding: 32px 0px;
+}
+
+.contact-place{
+    padding: 32px;
+    width: 100%;
+    cursor: pointer;
+}
+
+.contact-place.selected{
+    background: #E8F4F8;
+}
+
+.contact-title{
+    color: rgba(65, 149, 192, 1);
+    font-size: 24px;
+    font-weight: 600;
+    margin-left: 32px;
+}
+
+.place-name{
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.contact-places{
+    width: 100%;
+}
+
+.place-address{
+    font-size: 14px;
+    font-weight: 400;
+    color: rgba(123, 123, 123, 1);
+}
+
+.contact-section{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.contact-left{
+    width: 480px;
+    flex-grow: 1;
+    display: block;
+    padding-top: 64px;
+    flex-shrink: 0;
+    max-width: 100%;
+}
+
+.contact-right{
+    display: block;
+    width: 100%;
+    flex-grow: 1;
+    height: 512px;
+}
+
+.contact-bottom{
+    display: flex;
+    flex-direction: row;
+}
+
+.contact-bottom-section{
+    width: 100%;
+    flex-grow: 1;
+    height: 256px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(123, 123, 123, 1);
 }
 
 @keyframes fadein {
@@ -894,6 +973,29 @@ main p{
     .test-item{
         flex-direction: column;
         align-items: center;
+        justify-content: center;
+    }
+
+    
+    .test-content{
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+
+    .contact-section{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .contact-left{
+        width: 100%;
+    }
+
+    .section-4{
+        grid-template-columns: auto auto;
     }
 }
 
@@ -907,6 +1009,21 @@ main p{
     }
     .containerBottom .left{
         grid-template-columns: auto auto;
+    }
+
+    .contact-bottom{
+        flex-direction: column;
+        padding: 32px 0px;
+    }
+
+    .contact-bottom-section{
+        height: auto;
+        padding: 16px 48px;
+        text-align: center;
+    }
+    
+    .section-4{
+        grid-template-columns: auto;
     }
     
 }
@@ -926,7 +1043,7 @@ main p{
     .section-2 .containerTop .right .servCard{
         width: 100%;
     }
-    
+
 }
   
   @media screen and (max-width: 620px) {
