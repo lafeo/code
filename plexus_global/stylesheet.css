@@ -1,4 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+html{
+    scroll-behavior: smooth;
+}
 
 * {
     box-sizing: border-box;
@@ -7,6 +11,9 @@
     font-family: "Poppins", sans-serif;
 }
 
+h1{
+    color: rgba(55, 55, 55, 1);
+}
 
 .backgroundImage{
     position: absolute;
@@ -24,7 +31,7 @@ header{
     background-color: transparent;
     height: 96px;
 }
-.navitem, a {
+.navitem a {
     font-family: "Poppins", sans-serif;
     font-weight: 500;
     font-size: 16px;
@@ -140,7 +147,7 @@ main{
 
 }
 main h1{
-    font-size: 2.5vw;
+    font-size: 2em;
     font-weight: 700;
     color: #fff;
 }
@@ -195,7 +202,7 @@ main p{
     padding: 10px;
     height: 500px; /* Should be removed. Only for demonstration */
 
-    box-shadow: rgba(0, 0, 0, 0.568) 1px -1px 5px;
+    box-shadow: rgba(0, 0, 0, 0.25) 1px -1px 5px;
     padding: 30px 10%;
   }
   .column-content{
@@ -241,7 +248,6 @@ main p{
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 12%;
     background: #fff;
     margin-bottom: 50px;
     transition: 0.3s;
@@ -320,6 +326,10 @@ main p{
 .section-2 .containerTop .right .servCard {
     width: 50%;
     padding: 1.5em 3em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     cursor: pointer;    
 }
 .section-2 .containerTop .right .servCard .icon{
@@ -426,11 +436,12 @@ main p{
 
 .whitebg{
     background-color: white;
-    filter: drop-shadow(1px 2px 4px rgba(0, 0, 0, 0.527))
-    ;
+    box-shadow: rgba(0, 0, 0, 0.15) 1px 2px 8px;
 }
 .noshadoow{
-    filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.527))
+    /*filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.527))*/
+    box-shadow: rgba(0, 0, 0, 0.15) 1px 2px 8px;
+    z-index: 1;
 
 }
 .containerBottom .left .servCard .icon{
@@ -518,12 +529,405 @@ main p{
     background-color: white;
 }
 
+.section-4{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.sec4-row{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.sec4-item{
+    width: 100%;
+    flex-grow: 1;
+    height: 360px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: rgba(0, 0, 0, 0.15) 1px 2px 4px;
+    flex-direction: column;
+    text-align: center;
+    padding: 64px;
+    z-index: 1;
+}
+
+.sec4-blue{
+    background: rgba(232, 244, 248, 1);
+    z-index: 0 !important;
+}
+
+.sec4-item img{
+    width: 72px;
+}
+
+.sec4-item p{
+    margin-top: 32px;
+    font-size: 18px;
+}
+
+.section-5{
+    background: rgba(232, 244, 248, 1);
+    padding: 96px 64px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 64px;
+}
+
+.test-holder{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 64px 72px;
+}
+
+.test-item{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    animation: fadein 0.5s;
+}
+
+.test-person{
+    display: flex;
+    flex-direction: column;
+    width: 180px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.test-person img{
+    border-radius: 50%;
+    width: 180px;
+    height: 180px;
+    border: 1px solid #1B71A1;
+}
+
+.test-person .test-person-name{
+    font-size: 22px;
+    font-weight: 700;
+    margin-top: 24px;
+}
+
+.test-person .test-person-subtitle{
+    font-size: 18px;
+    font-weight: 500;
+    color: rgba(123, 123, 123, 1);
+}
+
+.test-content{
+    margin-left: 32px;
+    display: flex;
+    flex-direction: column;
+}
+
+.test-stars{
+    display: flex;
+    flex-direction: row;
+    margin-top: 8px;
+}
+
+.test-stars img{
+    width: 24px;
+    margin-right: 8px;
+}
+
+.test-content h1{
+    font-size: 36px;
+}
+
+.test-content p{
+    font-size: 18px;
+    line-height: 26px;
+    color: #7B7B7B;
+    margin-top: 24px;
+}
+
+.sec5-logos{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.section-6{
+    background: #FFF;
+    padding: 96px 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.team-holder{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    margin-top: 64px;
+}
+
+.team-item{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    text-align: center;
+    flex-grow: 1;
+    padding: 64px;
+    color: rgba(123, 123, 123, 1);
+    box-shadow: rgba(0, 0, 0, 0.15) 1px 2px 8px;
+    font-size: 16px;
+}
+
+.team-item img{
+    width: 128px;
+    height: 128px;
+    border-radius: 50%;
+}
+
+.team-name{
+    font-weight: 600;
+    font-size: 24px;
+    color: rgba(65, 149, 192, 1);
+    margin-top: 16px;
+}
+
+.team-position{
+    font-weight: 600;
+}
+
+.team-info{
+    font-weight: 400;
+    font-size: 14px;
+}
+
+.team-spacer{
+    height: 16px;
+}
+
+.footer{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.footer-main{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    background: rgba(233, 244, 249, 1);
+    color: rgba(55, 55, 55, 1);
+    padding: 64px;
+}
+
+.footer-bottom{
+    background: #4195C0;
+    color: #FFF;
+    width: 100%;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    padding-left: 96px;
+    justify-content: flex-start;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.footer-section{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    flex-grow: 1;
+    padding-right: 32px;
+    align-items: flex-start;
+}
+
+.footer-section p{
+    color: rgba(91, 93, 94, 1);
+    font-size: 16px;
+    max-width: 256px;
+    margin-top: 16px;
+}
+
+.footer-spacer{
+    display: block;
+    height: 20px;
+}
+
+.footer-section a{
+    color:rgba(55, 55, 55, 1);
+    font-size: 16px;
+    font-weight: 300;
+    text-decoration: none;
+    margin-bottom: 4px;
+}
+
+.footer-section a:hover{
+    text-decoration: underline;
+}
+
+.test-select{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 64px;
+}
+
+.test-select-item{
+    width: 24px;
+    height: 12px;
+    background: rgba(27, 113, 161, 0.4);
+    border-radius: 22px;
+    margin: 0px 4px;
+    cursor: pointer;
+}
+
+.test-select-item.selected{
+    width: 24px;
+    height: 12px;
+    background: rgba(65, 149, 192, 1);
+    border-radius: 22px;
+}
+
+.services-grid{
+    width: 100%;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+}
+
+@keyframes fadein {
+    from { 
+        opacity: 0; 
+        transform: translateX(-64px);
+    }
+    to   { 
+        opacity: 1; 
+        transform: translateX(0px);
+    }
+}
 
 @media screen and (max-width: 1000px) {
-    .card {
-      width: 20%;
+    .hero-img{
+        display: none;
     }
-  }
+    .navitem{
+        display: none;
+    }
+    .footer-main{
+        flex-direction: column;
+    }
+    .containerBottom{
+        flex-direction: column-reverse;
+    }
+    .row{
+        flex-direction: column;
+    }
+
+    .column{
+        width: 100%;
+    }
+
+    .containerTop{
+        flex-direction: column;
+    }
+
+    .left, .right{
+        width: 100% !important;
+    }
+
+    #ribbon{
+        flex-direction: column;
+        height: auto;
+    }
+
+    .ribCards{
+        border-bottom: solid 1px rgba(255,255,255, 0.15);
+    }
+
+    .section-5{
+        padding: 64px 16px;
+    }
+
+    .sec5-logos{
+        flex-direction: column;
+    }
+
+    .sec5-logos img{
+        margin-top: 32px;
+    }
+
+    .team-holder{
+        flex-direction: column;
+    }
+
+    .footer-section{
+        margin-top: 32px;
+    }
+
+    .footer-section p{
+        max-width: initial;
+    }
+
+    .sec3-top{
+        flex-direction: column;
+    }
+
+    .sec3-top > div{
+        width: 100%;
+    }
+
+    .sec3-top > img{
+        width: 100%;
+    }
+
+    .services-grid{
+        grid-template-columns: auto auto;
+    }
+
+    .test-item{
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media screen and (max-width: 720px) {
+    .servCard{
+        display: none;
+    }
+
+    .servCard.whitebg{
+        display: block
+    }
+    .containerBottom .left{
+        grid-template-columns: auto auto;
+    }
+    
+}
+
+@media screen and (max-width: 540px) {
+    .servCard{
+        display: none;
+    }
+
+    .servCard.whitebg{
+        display: block
+    }
+    .containerBottom .left{
+        grid-template-columns: auto;
+    }
+
+    .section-2 .containerTop .right .servCard{
+        width: 100%;
+    }
+    
+}
   
   @media screen and (max-width: 620px) {
     .container {
