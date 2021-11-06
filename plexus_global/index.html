@@ -37,8 +37,8 @@
     <div id="mnav" class="mnav">
         <img class="logo" alt="logo" src="./plexus_global2.svg">
         <a class="mnavitem" href="./index.html">Home</a>
-        <a class="mnavitem" href="#ourbrand">About Us</a>
-        <a class="mnavitem" href="#services">Services</a>
+        <a class="mnavitem" onclick="toggleNav()" href="#ourbrand">About Us</a>
+        <a class="mnavitem" onclick="toggleNav()" href="#services">Services</a>
         <a class="mnavitem" href="./ContactUs.html">Contact Us</a>
     </div>
 
@@ -49,7 +49,7 @@
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
                 in digni ssim euismod purus donec mus vulputate habitant iaculis. Com
                 odo enim ornare turpis tempus enim, nibh nulla. Rhoncus sed.</p>
-            <button class="cta">Get in touch</button>
+            <a class="cta" href="mailto:sg@plexushealthnet.com">Get in touch</a>
             <!-- Background image -->
             <!-- Side India image -->
            
@@ -127,7 +127,7 @@
                 <span class="section-title">Standardisation in <span class="highlight-blue">Diagnostic
                         Centers</span></span>
             </div>
-            <div class="row">
+            <div class="services-grid">
                 <div class="card">
 
                     <div class="card-body">
@@ -257,13 +257,17 @@
     <!-- below is for WHAT WE DO -->
     <div class="section-3">
         <div class='containerBottom'>
-            <div class='left'>
+            <div class='left' onclick="animateServices()">
                 <div class="servCard">
                         
                   
                 </div>
+                <div class="servCard servCard-extra whitebg">
+                    <h5 style="font-weight: 500; color: #4195C0" class="line exline" >Our Services</h5>
+                    <h3 style="margin-top: 16px;">What We Do</h3>
+                </div>
                 
-                <div class="servCard whitebg" >
+                <div class="servCard whitebg alt" onclick="animateDesc(this)" id="servCard-1">
                         
                     <div class="icon"> <img src="./stab.svg"></div>
                     <div class="head">Scalibility &
@@ -274,7 +278,7 @@
                         
                   
                 </div>
-                <div class="servCard whitebg" >
+                <div class="servCard whitebg alt" onclick="animateDesc(this)" id="servCard-2">
                         
                     <div class="icon">  
                         <img src="./lucra.svg">
@@ -285,7 +289,7 @@
                         Diagnostic Centers.</div>
                 </div>
                
-                <div class="servCard whitebg noshadoow">
+                <div class="servCard whitebg noshadoow" onclick="animateDesc(this)" id="servCard-0">
                         
                     <div class="icon"><img src='./revenue.svg'></div>
                     <div class="head">Optimised
@@ -293,7 +297,7 @@
                     <div class="desc">Optimised revenue & growth for Diagnostic Centers and ease of use for consumers.</div>
                 </div>
             
-                <div class="servCard whitebg">
+                <div class="servCard whitebg" onclick="animateDesc(this)" id="servCard-3">
                         
                     <div class="icon"><img src="./profit.svg"></div>
                     <div class="head">Profit &
@@ -304,7 +308,7 @@
                         
                   
                 </div>
-                <div class="servCard whitebg">
+                <div class="servCard whitebg alt" onclick="animateDesc(this)" id="servCard-4">
                         
                     <div class="icon"><img src="./branding.svg"></div>
                     <div class="head">Branding & Visibility</div>
@@ -400,39 +404,39 @@
 
 
     <!-- below OUR BUSSINESS PLAN -->
-    <div class="section-4">
+    <div class="section-4" onclick="animateBusinessPlan()">
         <!-- grid stuff again -->
-        <div class="sec4-item sec4-blue">
+        <div class="sec4-item sec4-blue alt" id="planCard-0" onclick="animateDesc(this)">
             <img src="./explore-ppp.svg"/>
             <p>
                 Explore PPP (Public Private 
                 Partnership) with local & central government to provide modern healthcare
             </p>
         </div>
-        <div class="sec4-item">
+        <div class="sec4-item" id="planCard-1" onclick="animateDesc(this)">
             <h3 style="font-weight: 500; color: rgba(65, 149, 192, 1)" class="line exline">Our Bussiness Plan</h3>
             <h1 style="margin-top: 24px;">A Solution for Bharat</h1>
         </div>
-        <div class="sec4-item sec4-blue">
+        <div class="sec4-item sec4-blue alt" id="planCard-2" onclick="animateDesc(this)">
             <img src="./preferred-partner.svg"/>
             <p>
                 Be a preferred partner for Universal Health Interface as per the directive of Ayushman Bharat
             </p>
         </div>
-        <div class="sec4-item">
+        <div class="sec4-item" id="planCard-5" onclick="animateDesc(this)">
             <img src="./modern-healthcare.svg"/>
             <p>
                 Making modern healthcare available even to Tier 5 & 6 cities with Standardised 
                 Network of Diagnostic Centers
             </p>
         </div>
-        <div class="sec4-item sec4-blue">
+        <div class="sec4-item sec4-blue" id="planCard-4" onclick="animateDesc(this)">
             <img src="./support-csr.svg"/>
             <p>
                 Supporting CSR activities of Corporates for Bharat
             </p>
         </div>
-        <div class="sec4-item">
+        <div class="sec4-item alt" id="planCard-3" onclick="animateDesc(this)">
             <img src="./telecons.svg"/>
             <p>
                 Vernacular Teleconsultation for Bharat
@@ -762,6 +766,100 @@ function loadTeam(cp){
     document.getElementById('team-holder').innerHTML = out;
 }
 
+var services_states = [
+    {
+        0: "none",
+        1: "none",
+        2: "none",
+        3: "none",
+        4: "none",
+    },
+    {
+        0: "none",
+        1: "translate(-100%)",
+        2: "translate(0px, 100%)",
+        3: "translate(0px, -100%)",
+        4: "translate(100%)",
+    }   
+]
+
+
+var services_state = 1;
+
+function animateServices(n){
+    if(window.innerWidth<1000) n = 0;
+    services_state = n!=null ? n : (services_state+1)%2;
+    let state = services_states[services_state];
+    for(var i=0;i<=4;i++){
+        let el = document.getElementById('servCard-'+i)
+        el.style.transform = state[i]
+        el.style.background = services_state==1 ? "#e8f4f8" : "#FFFFFF";
+    }
+}
+
+var plan_states = [
+    {
+        0: "",
+        1: "",
+        2: "",
+        3: "",
+        4: "",
+        5: "",
+    },
+    {
+        0: "translate(100%, 0%)",
+        1: "translate(100%, 0%)",
+        2: "translate(0%, 100%)",
+        3: "translate(-100%, 0%)",
+        4: "translate(-100%, 0%)",
+        5: "translate(0%, -100%)",
+    },
+    {
+        0: "translate(200%, 0%)",
+        1: "translate(100%, 100%)",
+        2: "translate(-100%, 100%)",
+        3: "translate(-200%, 0%)",
+        4: "translate(-100%, -100%)",
+        5: "translate(100%, -100%)",
+    },
+    {
+        0: "translate(200%, 100%)",
+        1: "translate(0%, 100%)",
+        2: "translate(-200%, 100%)",
+        3: "translate(-200%, -100%)",
+        4: "translate(0%, -100%)",
+        5: "translate(200%, -100%)",
+    },
+    {
+        0: "translate(100%, 100%)",
+        1: "translate(-100%, 100%)",
+        2: "translate(-200%, 0%)",
+        3: "translate(-100%, -100%)",
+        4: "translate(100%, -100%)",
+        5: "translate(200%, 0%)",
+    },
+    {
+        0: "translate(0%, 100%)",
+        1: "translate(-100%, 0%)",
+        2: "translate(-100%, 0%)",
+        3: "translate(0%, -100%)",
+        4: "translate(100%, 0%)",
+        5: "translate(100%, 0%)",
+    }
+]
+
+var plan_state = 0;
+
+function animateBusinessPlan(n){
+    if(window.innerWidth<1000) n = 0;
+    plan_state = n!=null ? n : (plan_state+1)%plan_states.length;
+    let state = plan_states[plan_state];
+    for(var i=0;i<=5;i++){
+        let el = document.getElementById('planCard-'+i)
+        el.style.transform = state[i]
+    }
+}
+
 function switchImg(e) {
 
     
@@ -802,6 +900,12 @@ function switchImg(e) {
     }
 
 }
+
+function animateDesc(el){
+    if(window.innerWidth<1000)
+    el.classList.toggle("card-desc")
+}
+
 var mnavOpen = false;
 
 function toggleNav(){
@@ -813,10 +917,15 @@ function toggleNav(){
 document.addEventListener('DOMContentLoaded',_=>{
     loadTestimonial();
     loadTeam();
+    animateServices();
 })
 
 window.addEventListener('resize',_=>{
     loadTeam();
+    if(window.innerWidth<1000){
+        animateServices();
+        animateBusinessPlan();
+    }
 })
 
 /*$(document).ready(function(){

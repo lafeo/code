@@ -153,14 +153,14 @@ main{
     display: inline-block;
     content: "";
     border-top: 2px solid #4195C0;
-    width: 3rem;
+    width: 10%;
     margin: 0 1rem;
 }
 .line::after{
       display: inline-block;
       content: "";
       border-top: 2px solid #4195C0;
-      width: 3rem;
+      width: 10%;
       margin: 0 1rem;
 }
 .highlight-blue{
@@ -231,7 +231,11 @@ main p{
     outline: none;
     border: none;
     font-weight: 500;
-
+    color: black;
+    text-decoration: none;
+}
+.cta:hover{
+    text-decoration: underline;
 }
 .selected{
     box-shadow: none;
@@ -315,7 +319,7 @@ main p{
     justify-content: center;
     align-items: center;
     background: #fff;
-    margin-bottom: 50px;
+    margin: auto;
     transition: 0.3s;
   }
   
@@ -353,7 +357,7 @@ main p{
     flex-direction: column;
     height: auto;
     justify-content: space-between;
-
+    flex-grow: 1;
     
 }
 
@@ -381,16 +385,14 @@ main p{
     height: auto;
 }
 .section-2 .containerTop .right{
-    flex: 0.5;
     width: 50%;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
     background: #E8F4F8;
 
 }
 .section-2 .containerTop .right .servCard {
-    width: 50%;
     padding: 1.5em 3em;
     display: flex;
     flex-direction: column;
@@ -487,10 +489,11 @@ main p{
     flex: 0.7;
     width: 50%;
     display: grid;
-    grid-template-columns: auto auto auto;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
     /* flex-direction: row; */
     /* flex-wrap: wrap; */
-    background: #E8F4F8;
+    background: #FFFFFF;
 
 }
 .containerBottom .left .servCard {
@@ -498,6 +501,7 @@ main p{
     height: 100%;
     padding: 2em;
     transition: all 200ms ease-out;
+    background: #e8f4f8;
 }
 
 .whitebg{
@@ -523,7 +527,6 @@ main p{
     margin-top: 0.4em;
     font-family: Poppins;
     text-align: center;
-    margin-bottom: 2em;
     font-size: 1.2em;
     font-weight: 600;
     color: black;
@@ -597,8 +600,10 @@ main p{
 
 .section-4{
     display: grid;
-    grid-template-columns: auto auto auto;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
     width: 100%;
+    margin-top: 64px;
 }
 
 .sec4-row{
@@ -610,15 +615,15 @@ main p{
 .sec4-item{
     width: 100%;
     flex-grow: 1;
-    height: 360px;
     display: flex;
     justify-content: center;
     align-items: center;
     box-shadow: rgba(0, 0, 0, 0.15) 1px 2px 4px;
     flex-direction: column;
     text-align: center;
-    padding: 64px;
+    padding: 3em 64px;
     z-index: 1;
+    transition: all 200ms;
 }
 
 .sec4-blue{
@@ -969,6 +974,10 @@ main p{
     max-width: 100%;
 }
 
+.servCard.servCard-extra{
+    display: none;
+}
+
 @keyframes fadein {
     from { 
         opacity: 0; 
@@ -1039,6 +1048,17 @@ main p{
 
     .sec5-logos img{
         margin-top: 32px;
+        margin-left: 4px;
+        margin-right: 4px;
+        width: 128px;
+    }
+
+    .section-2 .containerTop .left #top h1{
+        font-size: 2rem;
+    }
+
+    .section-2 .containerTop .left img{
+        display: none;
     }
 
     .team-holder{
@@ -1094,7 +1114,8 @@ main p{
     }
 
     .section-4{
-        grid-template-columns: auto auto;
+        grid-template-columns: 50% 50%;
+        grid-template-rows: 1fr 1fr 1fr;
     }
 
     .brand-row{
@@ -1108,6 +1129,22 @@ main p{
     .mnav{
         display: flex;
     }
+
+    .sec4-blue{
+        background: #FFF;
+    }
+
+    .sec4-item.alt{
+        background: #e8f4f8 !important;
+    }
+
+    
+    #planCard-0{
+        transform: translateX(100%);
+    }
+    #planCard-1{
+        transform: translateX(-100%);
+    }
 }
 
 @media screen and (max-width: 720px) {
@@ -1116,10 +1153,17 @@ main p{
     }
 
     .servCard.whitebg{
-        display: block
+        display: block;
     }
+    
+    .servCard.servCard-extra{
+        display: block;
+        background: #FFF !important;
+    }
+
+
     .containerBottom .left{
-        grid-template-columns: auto auto;
+        grid-template-columns: 50% 50%;
     }
 
     .contact-bottom{
@@ -1132,10 +1176,6 @@ main p{
         padding: 16px 48px;
         text-align: center;
     }
-    
-    .section-4{
-        grid-template-columns: auto;
-    }
 
     .brand-row{
         height: 128px;
@@ -1146,7 +1186,75 @@ main p{
     }
 
     .sec4-item{
-        padding: 8px;
+        padding: 2em 8px;
+    }
+
+    .containerBottom .left .servCard .desc{
+        position: absolute;
+        opacity: 0;
+        transition: all 0.2s;
+        padding: 0px 16px;
+    }
+
+    .containerBottom .left .servCard.card-desc .icon{
+        display: none;
+    }
+
+    .containerBottom .left .servCard.card-desc .head{
+        display: none;
+    }
+
+    .containerBottom .left .servCard.card-desc .desc{
+        opacity: 1;
+    }
+
+    .containerBottom .left .servCard .head{
+        font-size: 0.9em;
+        font-weight: 400;
+    }
+
+    .containerBottom .left .servCard.whitebg{
+        padding: 3em 16px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .containerBottom .left .servCard.whitebg.alt{
+        background: #e8f4f8 !important;
+    }
+
+    .containerBottom .right{
+        display: none;
+    }
+
+    .sec4-item p{
+        font-size: 14px;
+        padding: 0px 8px;
+        margin-top: 0px;
+    }
+
+    .sec4-item img{
+        position: absolute;
+        opacity: 0;
+        transition: all 0.2s;
+    }
+
+    .sec4-item.card-desc img{
+        opacity: 1;
+    }
+
+    .sec4-item.card-desc p{
+        opacity: 0;
+    }
+
+    .sec4-item h1{
+        font-size: 18px;
+    }
+    
+    .sec4-item h3{
+        font-size: 14px;
     }
 }
 
@@ -1158,12 +1266,22 @@ main p{
     .servCard.whitebg{
         display: block
     }
-    .containerBottom .left{
-        grid-template-columns: auto;
-    }
 
     .section-2 .containerTop .right .servCard{
         width: 100%;
+        padding: 16px;
+    }
+
+    .section-2 .containerTop .right .servCard .head{
+        font-size: 1em;
+    }
+
+    .section-2 .containerTop .right .servCard .desc{
+        font-size: 0.7em;
+    }
+
+    .section-2 .containerTop .right .servCard .icon img{
+        height: 36px;
     }
 
 }
@@ -1173,7 +1291,7 @@ main p{
       width: 40%;
     }
     .card-body{
-        font-size: 3vw;
+        font-size: 2vw;
     }
   
     .heading {
@@ -1183,6 +1301,10 @@ main p{
   
     .card {
       width: 80%;
+    }
+
+    .section-title{
+        font-size: 28px;
     }
   }
   

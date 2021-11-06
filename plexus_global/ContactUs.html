@@ -10,19 +10,32 @@
 <body>
     <header>
         <img class="logo" alt="logo" src="./plexus_gobal.svg">
-        <div class="navitem" >
-            <a href="./index.html" style="color:black">Home</a>
+        <div class="navitem">
+            <a href="./index.html" style="color: black">Home</a>
         </div>
-        <div class="navitem" >
-            <a href="#ourbrand" style="color:black">About us</a>
+
+        <div class="navitem">
+            <a href="./index.html#ourbrand" style="color: black">About us</a>
         </div>
-        <div class="navitem" >
-            <a href="" style="color:black">Services</a>
+
+        <div class="navitem">
+            <a href="./index.html#services" style="color: black">Services</a>
         </div>
-        <div class="navitem" >
-            <a href="" style="color:black">Contact us</a>
+
+        <div class="navitem">
+            <a href="./ContactUs.html" style="color: black">Contact us</a>
+        </div>
+        <div class="mnavbtn" onclick="toggleNav()">
+            <img src="./menu-black.png" />
         </div>
     </header>
+    <div id="mnav" class="mnav">
+        <img class="logo" alt="logo" src="./plexus_global2.svg">
+        <a class="mnavitem" href="./index.html">Home</a>
+        <a class="mnavitem" onclick="toggleNav()" href="./index.html#ourbrand">About Us</a>
+        <a class="mnavitem" onclick="toggleNav()" href="./index.html#services">Services</a>
+        <a class="mnavitem" href="./ContactUs.html">Contact Us</a>
+    </div>
     <div class="contact-content">
         <h1 style="color: black; margin-left: 32px;">Contact Us</h1>
         <div class="contact-section">
@@ -155,6 +168,15 @@
             document.getElementById('bottom-address').innerHTML = place.address;
             document.getElementById('bottom-contact').innerHTML = place.contact;
         }
+
+        var mnavOpen = false;
+
+        function toggleNav(){
+            mnavOpen = !mnavOpen;
+            document.body.style.overflow = mnavOpen ? 'hidden' : 'auto';
+            document.getElementById('mnav').classList.toggle('mnav-active');
+        }
+
 
         document.addEventListener('DOMContentLoaded',()=>{
             loadPlaces();
